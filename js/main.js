@@ -61,7 +61,7 @@ function tab(k){
   $$('#tabs button').forEach(b=>b.classList.toggle('on',b.dataset.t===k));
   list.innerHTML=MENU[k].items.map((t,i)=>`<p style="animation-delay:${i*70}ms">${t}</p>`).join('');
   const m=MENU[k];
-  if(m.video){mv.poster='assets/web/'+m.img+'.jpg';mv.src='assets/video/'+m.video+'.mp4';mv.play().catch(()=>{});mv.style.opacity=1;mi.style.opacity=0;}
+  if(m.video){mv.poster='assets/web/'+m.img+'.jpg';mv.src='assets/video/'+m.video+'.mp4?v=25';mv.play().catch(()=>{});mv.style.opacity=1;mi.style.opacity=0;}
   else{mv.pause();mv.style.opacity=0;mi.style.opacity=0;setTimeout(()=>{mi.src='assets/web/'+m.img+'.jpg';mi.style.opacity=1;},180);}
 }
 $$('#tabs button').forEach(b=>b.addEventListener('click',()=>tab(b.dataset.t))); tab('coffee');
