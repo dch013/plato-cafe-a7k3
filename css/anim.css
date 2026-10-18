@@ -147,3 +147,7 @@
 
 /* v45: накладки на район убраны по просьбе владельца */
 .pic-fx,.win,.mist,.pcl,.pbird,.kid{display:none!important}
+
+/* v46: видео района вместо картинки */
+.idea-pic .pic-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 96%;display:block}
+@media (prefers-reduced-motion:reduce){.idea-pic .pic-video{display:none}}
