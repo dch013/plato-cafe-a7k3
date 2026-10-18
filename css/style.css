@@ -403,3 +403,28 @@ h2.split.in-h .w>span{transform:none}
   .hero-shade{background:linear-gradient(180deg,rgba(20,26,15,.55) 0%,rgba(20,26,15,0) 28%,rgba(20,26,15,0) 70%,var(--deep) 100%)}
 }
 .top.solid{background:rgba(38,48,31,.95)}
+
+/* ===== v34: контраст, вес цифр, низкие экраны, доступность ===== */
+.sec-menu .audiences h3{color:var(--ink)}
+.sec-menu .mg-note{color:#cfd6bf}
+.sec-space .zrow:focus-visible,.sec-space button:focus-visible{outline:2px solid var(--deep);outline-offset:3px}
+.facts b,.nums b,.zrow b,.fstep i,.zone text.m{font-weight:300}
+.clock{font-weight:300}
+.day-shade{background:linear-gradient(90deg,rgba(20,26,15,.92) 0%,rgba(20,26,15,.7) 42%,rgba(20,26,15,.12) 100%)}
+.bleed::after{background:linear-gradient(180deg,rgba(20,26,15,.05) 10%,rgba(20,26,15,.55) 55%,rgba(20,26,15,.9))}
+.bleed-copy .eyebrow{color:#fff;text-shadow:0 1px 10px rgba(0,0,0,.5)}
+.bleed-copy h2,.bleed-copy p{text-shadow:0 1px 14px rgba(0,0,0,.55)}
+.step{visibility:hidden;transition:opacity .6s var(--ease),transform .6s var(--ease),visibility 0s .6s}
+.step.on{visibility:visible;transition:opacity .6s var(--ease),transform .6s var(--ease),visibility 0s 0s}
+.ticker:hover .ticker-track{animation-play-state:paused}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.trio figure.reveal img,.duo figure.reveal img{clip-path:none}h2.split .w>span{transform:none}.bar{opacity:1;transform:none}}
+@media (max-width:860px){
+  .hero-copy{flex:1;display:flex;flex-direction:column;justify-content:center;padding-bottom:48px}
+  .facts b,.nums b,.clock{font-weight:400}
+  .bleed-copy{padding-bottom:5svh}
+}
+@media (max-width:860px) and (max-height:720px){
+  .day-stage,.d-img,.day-shade{height:32svh}.day-ui{top:calc(32svh + 4px)}
+  .step p{font-size:14px;line-height:1.42}.step h3{font-size:18px}.clock{font-size:32px}.step .grp{font-size:10px}
+}
+@media (max-height:520px) and (orientation:landscape){.hero-copy{padding:72px max(24px,6vw) 3vh}.hero h1{font-size:min(9vw,22vh)}}
