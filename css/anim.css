@@ -87,3 +87,6 @@
 @keyframes steamup{0%{opacity:0;transform:translate(0,0) scale(.6,.5)}20%{opacity:.5}60%{opacity:.28;transform:translate(1.2vw,-5vw) scale(1.1,1)}100%{opacity:0;transform:translate(-.8vw,-9vw) scale(1.5,1.3)}}
 @media (max-aspect-ratio:3/2){.steam{display:none}}
 @media (prefers-reduced-motion:reduce){.steam i{animation:none;opacity:0}}
+/* v40: пар заметнее */
+.steam i{background:radial-gradient(ellipse at 50% 60%,rgba(255,255,255,.9),rgba(255,255,255,.25) 45%,rgba(255,255,255,0) 72%);filter:blur(7px);width:4vw;height:12vw;margin-top:2vw}
+@keyframes steamup{0%{opacity:0;transform:translate(0,0) scale(.6,.5)}18%{opacity:.85}60%{opacity:.5;transform:translate(1.2vw,-5vw) scale(1.1,1)}100%{opacity:0;transform:translate(-.8vw,-9vw) scale(1.5,1.3)}}
