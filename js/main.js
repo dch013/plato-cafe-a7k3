@@ -19,7 +19,7 @@ function count(el){
 /* scroll: header, progress, parallax, day timeline */
 const top=$('.top'), bar=$('#bar'), par=$$('[data-parallax]');
 const day=$('.day'), imgs=$$('.d-img'), steps=$$('.step'), dots=$$('#dots li'), clock=$('#clock');
-const times=['08:00','08:40','10:30','12:30','14:15','17:45'];
+const times=['Утро','Обед','Перерыв','Гости','Встречи','Позже'];
 let cur=-1, tick=0;
 function onScroll(){
   const y=scrollY, h=document.documentElement.scrollHeight-innerHeight;
@@ -33,12 +33,7 @@ function onScroll(){
   const i=Math.floor(p*imgs.length);
   if(i!==cur){cur=i; imgs.forEach((m,k)=>{m.classList.toggle('on',k===i);m.classList.toggle('past',k<i);}); steps.forEach((s,k)=>s.classList.toggle('on',k===i)); dots.forEach((d,k)=>d.classList.toggle('on',k===i)); tween(times[i]);}
 }
-function tween(to){
-  const [h,m]=clock.textContent.split(':').map(Number),[H,M]=to.split(':').map(Number);
-  const a=h*60+m,b=H*60+M,t0=performance.now(),id=++tick;
-  (function f(t){ if(id!==tick)return; const p=Math.min(1,(t-t0)/700),v=Math.round(a+(b-a)*p);
-    clock.textContent=String(Math.floor(v/60)).padStart(2,'0')+':'+String(v%60).padStart(2,'0'); if(p<1)requestAnimationFrame(f);})(t0);
-}
+function tween(to){clock.textContent=to;}
 addEventListener('scroll',()=>requestAnimationFrame(onScroll),{passive:true}); onScroll();
 
 /* plan */
@@ -51,17 +46,18 @@ zone('0');
 
 /* menu */
 const MENU={
-  coffee:{img:'06-coffee',video:'steam',items:['Эспрессо, американо, капучино, латте, флэт уайт','Один авторский напиток','Чай, какао, вода','Сезонный холодный напиток']},
-  eat:{img:'07-breakfast',items:['Сырники','Каша дня','Йогурт с гранолой','Два сэндвича и один ролл','Два салата, один из них сытный, с белком']},
-  lunch:{img:'08-lunch',items:['Суп дня, например куриный с лапшой','Два горячих блюда с гарниром на выбор','Котлета из индейки с пюре, курица с рисом и овощами','Меню меняется по двухнедельному циклу','Региональный акцент: порционный пирог с сыром и зеленью']},
-  sweet:{img:'03-counter',video:'hall',items:['Выпечка и десерты на витрине','Свежая витрина, понятная с порога','Свободная продажа из небольшого запаса']}
+  coffee:{img:'06-coffee',video:'steam',items:['Кофейная классика','Чай, какао, вода','Один сезонный напиток']},
+  eat:{img:'07-breakfast',items:['Сырники с ягодным соусом','Овсяная каша с вишней','Рисовая каша с абрикосом','Йогурт с гранолой','Собираем понятный завтрак: блюдо и любимый напиток']},
+  snack:{img:'04-hall',items:['Курица, сыр и свежие овощи','Индейка с горчичным соусом','Ролл с курицей и зеленью','Круассан с сыром и индейкой','Варианты для ротации. На витрине одновременно сохраняем два сэндвича и один ролл']},
+  lunch:{img:'08-lunch',items:['Супы дня: куриный суп с лапшой, чечевичный суп, грибной крем-суп','Горячее с гарниром: котлета из индейки с пюре, курица с рисом и овощами, говядина с гречкой, запечённая рыба с овощами','Один суп и два горячих блюда каждый день','Варианты сменяются по двухнедельному циклу. Все блюда готовит внешняя производственная кухня']},
+  sweet:{img:'03-counter',items:['Салат с курицей и овощами','Овощной салат с сыром','Салат с индейкой и крупой','Чизкейк, вишнёвый пирог, морковный пирог','Круассан и порционная выпечка','Региональный акцент: порционный пирог с сыром и зеленью']}
 };
 const list=$('#menuList'), mi=$('#menuImg'), mv=$('#menuVid');
 function tab(k){
   $$('#tabs button').forEach(b=>b.classList.toggle('on',b.dataset.t===k));
   list.innerHTML=MENU[k].items.map((t,i)=>`<p style="animation-delay:${i*70}ms">${t}</p>`).join('');
   const m=MENU[k];
-  if(m.video){mv.poster='assets/web/'+m.img+'.jpg';mv.src='assets/video/'+m.video+'.mp4?v=25';mv.play().catch(()=>{});mv.style.opacity=1;mi.style.opacity=0;}
+  if(m.video){mv.poster='assets/web/'+m.img+'.jpg';mv.src='assets/video/'+m.video+'.mp4?v=27';mv.play().catch(()=>{});mv.style.opacity=1;mi.style.opacity=0;}
   else{mv.pause();mv.style.opacity=0;mi.style.opacity=0;setTimeout(()=>{mi.src='assets/web/'+m.img+'.jpg';mi.style.opacity=1;},180);}
 }
 $$('#tabs button').forEach(b=>b.addEventListener('click',()=>tab(b.dataset.t))); tab('coffee');
@@ -69,15 +65,6 @@ $$('#tabs button').forEach(b=>b.addEventListener('click',()=>tab(b.dataset.t)));
 /* prices */
 const P=[['Кофе с молоком',180,250],['Завтрак без напитка',230,350],['Сэндвич или ролл',250,350],['Горячее с гарниром',320,420],['Суп и горячее с гарниром',450,550],['Десерт',180,300]];
 $('#priceBars').innerHTML=P.map(([n,a,b])=>`<div class="bar"><span>${n}</span><div class="track"><div class="fill" style="left:${(a-150)/4.2}%;right:${100-(b-150)/4.2}%"></div></div><em>${a}–${b} ₽</em></div>`).join('');
-
-/* calc */
-const r=[1,2,3].map(i=>$('#r'+i));
-function calc(){
-  const n=+r[0].value,s=+r[1].value,c=+r[2].value, o=Math.round(n*s/100);
-  $('#o1').textContent=n;$('#o2').textContent=s;$('#o3').textContent=c;
-  $('#p1').textContent=o;$('#p2').textContent=(o*c).toLocaleString('ru-RU');
-}
-r.forEach(i=>i.addEventListener('input',calc));calc();
 
 /* hero: цикл; на телефонах повторная попытка запуска при первом касании или прокрутке */
 const hv=$('#heroVideo');
