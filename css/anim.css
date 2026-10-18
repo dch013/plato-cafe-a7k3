@@ -160,3 +160,6 @@
 /* v49: зум идёт непрерывно вперёд-назад, заметно: 1 -> 1.09 -> 1 за 20 с, плавно без остановок и рывков */
 .hero-media img,.hero-media video.hero-intro{animation:heroz2 20s cubic-bezier(.45,.05,.55,.95) infinite}
 @keyframes heroz2{0%,100%{scale:1}50%{scale:1.09}}
+
+/* v50: зум отключён по просьбе владельца */
+.hero-media img,.hero-media video.hero-intro{animation:none!important;scale:1!important}
