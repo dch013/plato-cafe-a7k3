@@ -249,16 +249,17 @@ input[type=range]{width:100%;margin-top:12px;accent-color:var(--olive);height:28
 
 /* настоящие ласточки: один слой на весь экран, светлый фон растворяется (multiply), птицы мелкие и далёкие;
    маска: слева (над зданием) и внизу слой прозрачный, стая появляется из неба справа от здания */
-.swallows{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;mix-blend-mode:multiply;opacity:.8;z-index:1;pointer-events:none;
-  -webkit-mask-image:linear-gradient(to right,transparent 0,transparent 18%,#000 34%),linear-gradient(to bottom,#000 0,#000 34%,transparent 58%);
+.swallows{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;mix-blend-mode:multiply;opacity:.8;z-index:1;pointer-events:none;transform:translateY(-13%);
+  -webkit-mask-image:linear-gradient(to right,transparent 0,transparent 18%,#000 34%),linear-gradient(to bottom,#000 0,#000 30%,transparent 44%);
   -webkit-mask-composite:source-in;
-  mask-image:linear-gradient(to right,transparent 0,transparent 18%,#000 34%),linear-gradient(to bottom,#000 0,#000 34%,transparent 58%);
+  mask-image:linear-gradient(to right,transparent 0,transparent 18%,#000 34%),linear-gradient(to bottom,#000 0,#000 30%,transparent 44%);
   mask-composite:intersect}
 @media (prefers-reduced-motion:reduce){.swallows{display:none}}
 
 /* телефон: в кадре павильон кофейни, текст сверху */
 @media (max-width:860px) and (orientation:portrait){
   .hero{align-items:flex-start}
+  .hero-media,.hero-media img,.hero-media video{inset:0;height:100%}
   .hero-media img,.hero-media video{object-position:11% 50%}
   .hero-copy{padding:84px 22px 0}
   .hero-shade{background:linear-gradient(180deg,rgba(20,26,15,.72) 0%,rgba(20,26,15,.45) 38%,rgba(20,26,15,0) 62%,rgba(20,26,15,.25) 100%)}
