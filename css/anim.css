@@ -1,0 +1,64 @@
+/* Дополнительные анимации (js/anim.js). Если скрипт не сработал, всё остаётся видимым: скрытие включает класс .cascade только из JS. */
+.cascade{opacity:0;transform:translateY(34px) scale(.97);transition:opacity .8s var(--ease),transform .9s var(--ease);transition-delay:var(--st,0ms)}
+.cascade.cas-in{opacity:1;transform:none}
+.cascade.cas-in:hover{transition-delay:0ms}
+/* параллакс фото */
+.trio img,.duo img,.idea-pic img,.menu-photo img{transform:translate3d(0,var(--py,0px),0) scale(1.1)}
+.trio figure:hover img{transform:translate3d(0,var(--py,0px),0) scale(1.16)}
+.duo figure,.idea-pic,.trio figure,.menu-photo{overflow:hidden}
+/* подсветка под курсором */
+.spot{position:relative;overflow:hidden}
+.spot::before{content:"";position:absolute;left:var(--mx,50%);top:var(--my,50%);width:320px;height:320px;margin:-160px 0 0 -160px;border-radius:50%;background:radial-gradient(circle,rgba(217,233,138,.38),rgba(217,233,138,0) 65%);opacity:0;transition:opacity .35s;pointer-events:none}
+.spot:hover::before{opacity:1}
+.spot>*{position:relative}
+/* главная: живой свет и смещение за курсором */
+.hero-media{translate:var(--mx2,0) var(--my2,0);transition:translate .6s var(--ease)}
+.hero::after{content:"";position:absolute;inset:-20%;pointer-events:none;background:radial-gradient(ellipse 40% 30% at 20% 30%,rgba(255,214,150,.22),transparent 70%);mix-blend-mode:screen;animation:leak 14s ease-in-out infinite alternate}
+@keyframes leak{0%{transform:translate(-6%,2%) scale(1)}50%{transform:translate(18%,-4%) scale(1.25)}100%{transform:translate(40%,6%) scale(1)}}
+/* схема производства: активный шаг */
+.fstep{transition:transform .5s var(--ease),box-shadow .5s var(--ease),background .5s,border-color .5s}
+.fstep.act{background:#fff;border-top-color:var(--lime);box-shadow:0 22px 44px -22px rgba(38,48,31,.5);transform:translateY(-6px)}
+.fstep.act i{color:var(--deep)}
+/* блок «День»: отскок цифры */
+.clock.bump{animation:bump .6s var(--ease)}
+@keyframes bump{0%{transform:translateY(14px) scale(.9);opacity:.2}60%{transform:translateY(-4px) scale(1.04);opacity:1}100%{transform:none}}
+/* зоны плана плавнее */
+.zone rect{transition:fill .5s,stroke-width .3s}.zone.on rect{stroke-width:3}
+.zone .seat{transform-box:fill-box;transform-origin:center;animation:seatpulse 3.2s ease-in-out infinite}
+.zone:nth-child(n) .seat:nth-child(odd){animation-delay:-1.4s}
+@keyframes seatpulse{0%,100%{transform:scale(1)}50%{transform:scale(1.22)}}
+/* меню: смена фото */
+.menu-photo img{transition:opacity .6s,transform 1.2s var(--ease)}
+.menu-list p{animation-duration:.55s}
+/* цены: полоса диапазона не нужна, строки уже по очереди; подсветка строки при наведении */
+.bar{transition:opacity .7s var(--ease) var(--d),transform .7s var(--ease) var(--d),background .3s}
+.bar:hover{background:rgba(217,233,138,.08)}
+/* бегущие строки идут навстречу друг другу */
+.ticker.alt{background:var(--deep);color:var(--lime)}
+.ticker.alt .ticker-track{animation-direction:reverse;animation-duration:55s}
+.ticker.alt i{background:var(--lime)}
+/* финал: заголовок слегка дышит */
+.next h2{animation:breathe 7s ease-in-out infinite}
+@keyframes breathe{0%,100%{letter-spacing:0}50%{letter-spacing:.012em}}
+@media (prefers-reduced-motion:reduce){.cascade{opacity:1;transform:none}.hero::after,.zone .seat,.next h2,.clock.bump{animation:none}.hero-media{translate:none}}
+@media (max-width:860px){.hero::after{display:none}.spot::before{display:none}}
+
+/* ===== главная: живое окно (облака, листва, зум) ===== */
+.hero-media img{animation:herozoom 22s ease-in-out infinite alternate}
+@keyframes herozoom{from{scale:1;translate:0 0}to{scale:1.12;translate:-1.8% -1.2%}}
+.hero-media .live{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;overflow:visible;animation:herozoom 22s ease-in-out infinite alternate}
+.live .sky{position:absolute;inset:0;overflow:hidden;clip-path:polygon(12.5% 5%,45.5% 15%,45.5% 26.5%,12.5% 29%);mix-blend-mode:screen}
+.live .cl{position:absolute;display:block;border-radius:50%;filter:blur(22px);background:radial-gradient(ellipse at 50% 50%,rgba(255,236,205,.95),rgba(255,236,205,0) 68%);opacity:.55;will-change:transform}
+.live .c1{width:30%;height:9%;left:-35%;top:8%;animation:cloud 58s linear infinite}
+.live .c2{width:24%;height:7%;left:-30%;top:16%;animation:cloud 76s linear infinite -30s;opacity:.4}
+.live .c3{width:36%;height:10%;left:-40%;top:20%;animation:cloud 92s linear infinite -55s;opacity:.35}
+.live .c4{width:20%;height:6%;left:-25%;top:11%;animation:cloud 66s linear infinite -12s;opacity:.45}
+@keyframes cloud{to{transform:translateX(560%)}}
+.live .sway{position:absolute;inset:0;background:url(../assets/web/13-mountains.jpg) 0 0/100% 100% no-repeat;will-change:filter}
+/* левые крупные листья */
+.live .sw1{clip-path:polygon(0% 0%,19% 0%,21% 10%,18% 34%,12% 52%,0% 56%);filter:url(#wind);-webkit-mask-image:linear-gradient(90deg,#000 55%,transparent);mask-image:linear-gradient(90deg,#000 55%,transparent)}
+/* деревья и кусты за окном */
+.live .sw2{clip-path:polygon(12.5% 36%,45% 34%,46% 56%,12.5% 56%);filter:url(#wind2);-webkit-mask-image:linear-gradient(180deg,transparent,#000 25%,#000 70%,transparent);mask-image:linear-gradient(180deg,transparent,#000 25%,#000 70%,transparent)}
+/* растения у стойки справа от окна */
+.live .sw3{clip-path:polygon(47% 14%,60% 14%,61% 48%,48% 56%);filter:url(#wind);-webkit-mask-image:radial-gradient(ellipse at 50% 50%,#000 55%,transparent 80%);mask-image:radial-gradient(ellipse at 50% 50%,#000 55%,transparent 80%)}
+@media (prefers-reduced-motion:reduce){.hero-media img,.hero-media .live,.live .cl{animation:none}.live .sway{filter:none}}
