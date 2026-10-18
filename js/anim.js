@@ -85,3 +85,15 @@ if(clock){new MutationObserver(()=>{clock.classList.remove('bump');void clock.of
 /* 8. кнопка музыки: волна эквалайзера рядом с кнопкой, пока играет, уже в main.js; здесь только подсказка после 1-й прокрутки */
 let hinted=false;addEventListener('scroll',()=>{if(hinted||scrollY<innerHeight*.9)return;hinted=true;const s=$('#sound');if(s&&s.getAttribute('aria-pressed')!=='true')s.classList.add('nudge');},{passive:true});
 }catch(e){console.warn('anim.js',e);}})();
+
+/* район: мерцание окон в домах и лёгкая дымка над парком (только широкие экраны) */
+(function(){try{
+if(matchMedia('(prefers-reduced-motion: reduce)').matches||innerWidth<861)return;
+const fx=document.querySelector('.pic-fx');if(!fx)return;
+const blocks=[[.32,.40,.26,.60],[.41,.62,.32,.62],[.62,.91,.24,.60]]; // x0,x1,y0,y1 долей кадра
+let seed=7;const rnd=()=>{seed=(seed*16807)%2147483647;return seed/2147483647;};
+for(let i=0;i<30;i++){const b=blocks[i%3],w=document.createElement('i');w.className='win';
+  w.style.left=(b[0]+rnd()*(b[1]-b[0])*100/100)*100+'%';w.style.top=(b[2]+rnd()*(b[3]-b[2]))*100+'%';
+  w.style.animationDuration=(5+rnd()*7).toFixed(1)+'s';w.style.animationDelay=(-rnd()*10).toFixed(1)+'s';fx.appendChild(w);}
+['m1','m2'].forEach(c=>{const m=document.createElement('i');m.className='mist '+c;fx.appendChild(m);});
+}catch(e){console.warn('district fx',e);}})();
