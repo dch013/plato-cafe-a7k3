@@ -247,9 +247,18 @@ input[type=range]{width:100%;margin-top:12px;accent-color:var(--olive);height:28
 .hero-shade,.hero-copy,.scroll-cue{z-index:2}
 @media (prefers-reduced-motion:reduce){.bird{animation:none;left:60%}.bird svg,.bird .wing{animation:none}}
 
-/* настоящие ласточки: светлый фон ролика исчезает при multiply, края слоя растворены маской, стая далеко и справа от здания */
-.swallows{position:absolute;left:0;top:-3%;width:24%;animation:cross 38s linear infinite;will-change:transform;aspect-ratio:16/9;height:auto;object-fit:cover;mix-blend-mode:multiply;opacity:.7;z-index:1;pointer-events:none;
-  -webkit-mask-image:radial-gradient(ellipse 48% 48% at 50% 50%,#000 38%,transparent 100%);mask-image:radial-gradient(ellipse 48% 48% at 50% 50%,#000 38%,transparent 100%)}
+/* настоящие ласточки: один слой на весь экран, светлый фон растворяется (multiply), птицы мелкие и далёкие, внизу слой гаснет */
+.swallows{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;mix-blend-mode:multiply;opacity:.8;z-index:1;pointer-events:none;
+  -webkit-mask-image:linear-gradient(to bottom,#000 0,#000 38%,transparent 62%);mask-image:linear-gradient(to bottom,#000 0,#000 38%,transparent 62%)}
 @media (prefers-reduced-motion:reduce){.swallows{display:none}}
-@keyframes cross{from{transform:translateX(-40vw)}to{transform:translateX(125vw)}}
-@media (max-width:860px){.swallows{left:0;right:auto;top:6%;width:50%;animation-duration:26s}}
+
+/* телефон: в кадре павильон кофейни, текст сверху */
+@media (max-width:860px) and (orientation:portrait){
+  .hero{align-items:flex-start}
+  .hero-media img,.hero-media video{object-position:11% 50%}
+  .hero-copy{padding:84px 22px 0}
+  .hero-shade{background:linear-gradient(180deg,rgba(20,26,15,.72) 0%,rgba(20,26,15,.45) 38%,rgba(20,26,15,0) 62%,rgba(20,26,15,.25) 100%)}
+  .hero h1{font-size:15vw}
+  .lead{font-size:16px;margin-top:18px}
+  .swallows{width:230%;left:-65%;height:46%;top:30%;position:absolute;-webkit-mask-image:none;mask-image:none;opacity:.7}
+}
