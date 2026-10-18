@@ -265,5 +265,5 @@ input[type=range]{width:100%;margin-top:12px;accent-color:var(--olive);height:28
   .hero-shade{background:linear-gradient(180deg,rgba(20,26,15,.72) 0%,rgba(20,26,15,.45) 38%,rgba(20,26,15,0) 62%,rgba(20,26,15,.25) 100%)}
   .hero h1{font-size:15vw}
   .lead{font-size:16px;margin-top:18px}
-  .swallows{display:block;position:absolute;left:-70%;width:240%;top:4%;height:25%;transform:none;opacity:.75;-webkit-mask-image:linear-gradient(to bottom,#000 0,#000 55%,transparent 100%);mask-image:linear-gradient(to bottom,#000 0,#000 55%,transparent 100%);-webkit-mask-composite:source-over;mask-composite:add}
+  .swallows{display:block;position:absolute;left:-110%;width:320%;top:6%;height:30%;transform:none;opacity:.75;-webkit-mask-image:linear-gradient(to bottom,#000 0,#000 55%,transparent 100%);mask-image:linear-gradient(to bottom,#000 0,#000 55%,transparent 100%);-webkit-mask-composite:source-over;mask-composite:add}
 }
