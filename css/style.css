@@ -402,3 +402,4 @@ h2.split.in-h .w>span{transform:none}
   .trio.small figure{flex:0 0 46%;scroll-snap-align:start}
   .hero-shade{background:linear-gradient(180deg,rgba(20,26,15,.55) 0%,rgba(20,26,15,0) 28%,rgba(20,26,15,0) 70%,var(--deep) 100%)}
 }
+.top.solid{background:rgba(38,48,31,.95)}
