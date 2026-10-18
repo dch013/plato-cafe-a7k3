@@ -203,3 +203,17 @@ input[type=range]{width:100%;margin-top:12px;accent-color:var(--olive);height:28
 .ask{margin-top:18px;max-width:60ch;color:#e6ecd6;font-size:18px}
 
 .next h2{max-width:24ch}
+
+@media (max-height:520px) and (orientation:landscape){
+  .hero{min-height:0}
+  .hero h1{font-size:min(15vw,24vh);letter-spacing:.03em}
+  .hero h1 em{margin-top:.5em}
+  .slats{display:none}
+  .hero-copy{padding-bottom:6vh}
+  .hero-copy .eyebrow{margin-bottom:10px}
+  .lead{display:none}
+  .bleed{min-height:0;height:100svh}
+  .day-ui{width:min(560px,60%)}
+  .clock{font-size:clamp(48px,16vh,90px)}
+  .steps{height:150px}
+}
