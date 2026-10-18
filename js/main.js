@@ -77,9 +77,12 @@ function calc(){
 }
 r.forEach(i=>i.addEventListener('input',calc));calc();
 
-/* hero video (подключается, если файл есть) */
+/* hero: цикл; на телефонах повторная попытка запуска при первом касании или прокрутке */
 const hv=$('#heroVideo');
-fetch('assets/video/hero.mp4',{method:'HEAD'}).then(x=>{if(x.ok){hv.src='assets/video/hero.mp4';hv.hidden=false;hv.play().catch(()=>{});}}).catch(()=>{});
+const kick=()=>{if(hv.paused)hv.play().catch(()=>{});};
+hv.play&&hv.play().catch(()=>{});
+['touchstart','pointerdown','scroll','visibilitychange'].forEach(e=>addEventListener(e,kick,{passive:true,once:e!=='visibilitychange'&&e!=='scroll'}));
+document.addEventListener('visibilitychange',kick);
 /* ролики проигрываются один раз и замирают на последнем кадре (без цикла и отката зума) */
 const once=$$('video[data-once]');
 const vio=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;
