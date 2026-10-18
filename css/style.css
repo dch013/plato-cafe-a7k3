@@ -248,7 +248,7 @@ input[type=range]{width:100%;margin-top:12px;accent-color:var(--olive);height:28
 @media (prefers-reduced-motion:reduce){.bird{animation:none;left:60%}.bird svg,.bird .wing{animation:none}}
 
 /* настоящие ласточки: светлый фон ролика исчезает при multiply, края слоя растворены маской, стая далеко и справа от здания */
-.swallows{position:absolute;left:0;top:2%;width:24%;animation:cross 38s linear infinite;will-change:transform;aspect-ratio:16/9;height:auto;object-fit:cover;mix-blend-mode:multiply;opacity:.7;z-index:1;pointer-events:none;
+.swallows{position:absolute;left:0;top:-3%;width:24%;animation:cross 38s linear infinite;will-change:transform;aspect-ratio:16/9;height:auto;object-fit:cover;mix-blend-mode:multiply;opacity:.7;z-index:1;pointer-events:none;
   -webkit-mask-image:radial-gradient(ellipse 48% 48% at 50% 50%,#000 38%,transparent 100%);mask-image:radial-gradient(ellipse 48% 48% at 50% 50%,#000 38%,transparent 100%)}
 @media (prefers-reduced-motion:reduce){.swallows{display:none}}
 @keyframes cross{from{transform:translateX(-40vw)}to{transform:translateX(125vw)}}
