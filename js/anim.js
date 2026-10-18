@@ -18,7 +18,7 @@ $$('.cascade').forEach(c=>pio.observe(c.parentElement));
 /* 2. параллакс фото при прокрутке */
 const par=$$('.trio img,.duo img,.idea-pic img,.menu-photo img,.iso img');
 let tick=false;
-function px(){tick=false;const h=innerHeight;par.forEach(im=>{const r=im.getBoundingClientRect();if(r.bottom<-50||r.top>h+50)return;const p=((r.top+r.height/2)-h/2)/h;im.style.setProperty('--py',(p*-26).toFixed(1)+'px');});}
+function px(){tick=false;const h=innerHeight;par.forEach(im=>{const r=im.getBoundingClientRect();if(r.bottom<-50||r.top>h+50)return;const p=((r.top+r.height/2)-h/2)/h;im.style.setProperty('--py',(p*-9).toFixed(1)+'px');});}
 addEventListener('scroll',()=>{if(!tick){tick=true;requestAnimationFrame(px);}},{passive:true});px();
 
 /* 3. план 55 м²: зоны подсвечиваются сами, пока посетитель не взял управление */

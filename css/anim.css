@@ -3,8 +3,8 @@
 .cascade.cas-in{opacity:1;transform:none}
 .cascade.cas-in:hover{transition-delay:0ms}
 /* параллакс фото */
-.trio img,.duo img,.idea-pic img,.menu-photo img{transform:translate3d(0,var(--py,0px),0) scale(1.1)}
-.trio figure:hover img{transform:translate3d(0,var(--py,0px),0) scale(1.16)}
+.trio img,.duo img,.idea-pic img,.menu-photo img{transform:translate3d(0,var(--py,0px),0) scale(1.04)}
+.trio figure:hover img{transform:translate3d(0,var(--py,0px),0) scale(1.08)}
 .duo figure,.idea-pic,.trio figure,.menu-photo{overflow:hidden}
 /* подсветка под курсором */
 .spot{position:relative;overflow:hidden}
@@ -62,3 +62,10 @@
 /* растения у стойки справа от окна */
 .live .sw3{clip-path:polygon(47% 14%,60% 14%,61% 48%,48% 56%);filter:url(#wind);-webkit-mask-image:radial-gradient(ellipse at 50% 50%,#000 55%,transparent 80%);mask-image:radial-gradient(ellipse at 50% 50%,#000 55%,transparent 80%)}
 @media (prefers-reduced-motion:reduce){.hero-media img,.hero-media .live,.live .cl{animation:none}.live .sway{filter:none}}
+
+/* v37: убрано «плавание»: живой слой отключён, зум спокойный, без сдвига за мышью */
+.hero-media .live,.live{display:none!important}
+.hero-media{translate:none!important}
+.hero-media img{animation:herozoom 30s ease-in-out infinite alternate}
+@keyframes herozoom{from{scale:1;translate:0 0}to{scale:1.06;translate:-.6% -.4%}}
+.hero::after{display:none}
