@@ -69,3 +69,9 @@
 .hero-media img{animation:herozoom 30s ease-in-out infinite alternate}
 @keyframes herozoom{from{scale:1;translate:0 0}to{scale:1.06;translate:-.6% -.4%}}
 .hero::after{display:none}
+
+/* v38: никакого бесконечного «дыхания» кадров — один медленный проход и остановка */
+.hero-media img{animation:herozoom1 26s ease-out both}
+@keyframes herozoom1{from{scale:1;translate:0 0}to{scale:1.025;translate:0 0}}
+.kb{animation:none!important}
+.d-img.kb{animation:none!important}
