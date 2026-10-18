@@ -75,3 +75,15 @@
 @keyframes herozoom1{from{scale:1;translate:0 0}to{scale:1.025;translate:0 0}}
 .kb{animation:none!important}
 .d-img.kb{animation:none!important}
+
+/* лёгкий пар над чашкой в блоке «День» (только первый кадр, только широкие экраны) */
+.steam{position:absolute;left:58.5%;top:44%;width:0;height:0;opacity:0;transition:opacity 1s;pointer-events:none;z-index:1}
+.d-img:first-child.on~.steam{opacity:1}
+.steam i{position:absolute;left:0;bottom:0;width:3.2vw;height:11vw;margin-left:-1.6vw;border-radius:50%;background:radial-gradient(ellipse at 50% 60%,rgba(255,255,255,.55),rgba(255,255,255,0) 70%);filter:blur(10px);opacity:0;transform-origin:50% 100%;animation:steamup 7s ease-in-out infinite}
+.steam i:nth-child(1){margin-left:-3.2vw;animation-delay:0s}
+.steam i:nth-child(2){margin-left:-.4vw;animation-delay:-1.8s}
+.steam i:nth-child(3){margin-left:1.8vw;animation-delay:-3.6s}
+.steam i:nth-child(4){margin-left:-1.6vw;animation-delay:-5.3s}
+@keyframes steamup{0%{opacity:0;transform:translate(0,0) scale(.6,.5)}20%{opacity:.5}60%{opacity:.28;transform:translate(1.2vw,-5vw) scale(1.1,1)}100%{opacity:0;transform:translate(-.8vw,-9vw) scale(1.5,1.3)}}
+@media (max-aspect-ratio:3/2){.steam{display:none}}
+@media (prefers-reduced-motion:reduce){.steam i{animation:none;opacity:0}}

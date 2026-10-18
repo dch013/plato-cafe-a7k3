@@ -57,7 +57,7 @@ function tab(k){
   $$('#tabs button').forEach(b=>{const on=b.dataset.t===k;b.classList.toggle('on',on);b.setAttribute('aria-pressed',on);});
   list.innerHTML='<h3 class="mt">'+MENU[k].title+'</h3>'+MENU[k].items.map((t,i)=>t.startsWith('##')?`<h4>${t.slice(2)}</h4>`:`<p style="animation-delay:${i*40}ms">${t}</p>`).join('');
   const m=MENU[k];
-  if(m.video){mv.poster='assets/web/'+m.img+'.jpg';mv.src='assets/video/'+m.video+'.mp4?v=38';mv.play().catch(()=>{});mv.style.opacity=1;mi.style.opacity=0;}
+  if(m.video){mv.poster='assets/web/'+m.img+'.jpg';mv.src='assets/video/'+m.video+'.mp4?v=39';mv.play().catch(()=>{});mv.style.opacity=1;mi.style.opacity=0;}
   else{mv.pause();mv.style.opacity=0;mi.style.opacity=0;setTimeout(()=>{mi.src='assets/web/'+m.img+'.jpg';mi.style.opacity=1;},180);}
 }
 $$('#tabs button').forEach(b=>b.addEventListener('click',()=>tab(b.dataset.t))); tab('coffee');
