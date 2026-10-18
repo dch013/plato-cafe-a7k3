@@ -95,7 +95,7 @@ loops.forEach(v=>vio.observe(v));
 (function(){
   const $=s=>document.querySelector(s);
   const btn=$('#sound'),lbl=$('#soundLbl'),hint=$('#soundHint');
-  const tracks=[[new Audio('assets/audio/birds.mp3'),.9],[new Audio('assets/audio/music.mp3'),.7]];
+  const tracks=[[new Audio('assets/audio/birds.mp3'),.28],[new Audio('assets/audio/music.mp3'),.7]];
   tracks.forEach(([a])=>{a.loop=true;a.preload='auto';a.volume=0;});
   let on=false,timers=[];
   const fade=(a,to,ms,done)=>{const from=a.volume,t0=performance.now();(function f(t){const p=Math.min(1,(t-t0)/ms);a.volume=Math.max(0,Math.min(1,from+(to-from)*p));if(p<1)requestAnimationFrame(f);else done&&done();})(t0);};
