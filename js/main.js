@@ -46,17 +46,17 @@ zone('0');
 
 /* menu */
 const MENU={
-  coffee:{title:'Кофе и напитки',img:'06-coffee',video:'steam',items:['Кофейная классика','Чай, какао, вода','Один сезонный напиток']},
+  coffee:{title:'Кофе и напитки',img:'06-coffee',items:['Кофейная классика','Чай, какао, вода','Один сезонный напиток']},
   eat:{title:'Завтраки и сытные перекусы',img:'07-breakfast',items:['##Завтраки','Сырники с ягодным соусом','Овсяная каша с вишней','Рисовая каша с абрикосом','Йогурт с гранолой','Собираем понятный завтрак: блюдо и любимый напиток','##Сэндвичи и роллы','Курица, сыр и свежие овощи','Индейка с горчичным соусом','Ролл с курицей и зеленью','Круассан с сыром и индейкой','Варианты для ротации. На витрине одновременно сохраняем два сэндвича и один ролл']},
   lunch:{title:'Полноценные обеды',img:'08-lunch',items:['##Супы дня','Куриный суп с лапшой','Чечевичный суп','Грибной крем-суп','##Горячее с гарниром','Котлета из индейки с пюре','Курица с рисом и овощами','Говядина с гречкой','Запечённая рыба с овощами','Один суп и два горячих блюда каждый день','Варианты сменяются по двухнедельному циклу. Все блюда готовит внешняя производственная кухня']},
-  sweet:{title:'Салаты и сладкое к кофе',img:'03-counter',items:['##Свежая еда','Салат с курицей и овощами','Овощной салат с сыром','Салат с индейкой и крупой','##Десерты и выпечка','Чизкейк','Вишнёвый пирог','Морковный пирог','Круассан и порционная выпечка','##Региональный акцент','Порционный пирог с сыром и зеленью']}
+  sweet:{title:'Салаты и сладкое к кофе',img:'10-dessert',items:['##Свежая еда','Салат с курицей и овощами','Овощной салат с сыром','Салат с индейкой и крупой','##Десерты и выпечка','Чизкейк','Вишнёвый пирог','Морковный пирог','Круассан и порционная выпечка','##Региональный акцент','Порционный пирог с сыром и зеленью']}
 };
 const list=$('#menuList'), mi=$('#menuImg'), mv=$('#menuVid');
 function tab(k){
   $$('#tabs button').forEach(b=>b.classList.toggle('on',b.dataset.t===k));
   list.innerHTML='<h3 class="mt">'+MENU[k].title+'</h3>'+MENU[k].items.map((t,i)=>t.startsWith('##')?`<h4>${t.slice(2)}</h4>`:`<p style="animation-delay:${i*40}ms">${t}</p>`).join('');
   const m=MENU[k];
-  if(m.video){mv.poster='assets/web/'+m.img+'.jpg';mv.src='assets/video/'+m.video+'.mp4?v=28';mv.play().catch(()=>{});mv.style.opacity=1;mi.style.opacity=0;}
+  if(m.video){mv.poster='assets/web/'+m.img+'.jpg';mv.src='assets/video/'+m.video+'.mp4?v=30';mv.play().catch(()=>{});mv.style.opacity=1;mi.style.opacity=0;}
   else{mv.pause();mv.style.opacity=0;mi.style.opacity=0;setTimeout(()=>{mi.src='assets/web/'+m.img+'.jpg';mi.style.opacity=1;},180);}
 }
 $$('#tabs button').forEach(b=>b.addEventListener('click',()=>tab(b.dataset.t))); tab('coffee');
@@ -67,8 +67,8 @@ $('#priceBars').innerHTML=P.map(([n,a,b])=>`<div class="bar"><span>${n}</span><d
 
 /* hero: цикл; на телефонах повторная попытка запуска при первом касании или прокрутке */
 const hv=$('#heroVideo');
-const kick=()=>{if(hv.paused)hv.play().catch(()=>{});};
-hv.play&&hv.play().catch(()=>{});
+const kick=()=>{if(hv&&hv.paused)hv.play().catch(()=>{});};
+hv&&hv.play&&hv.play().catch(()=>{});
 ['touchstart','pointerdown','scroll','visibilitychange'].forEach(e=>addEventListener(e,kick,{passive:true,once:e!=='visibilitychange'&&e!=='scroll'}));
 document.addEventListener('visibilitychange',kick);
 /* все ролики идут по кругу, пока видны; вне экрана ставятся на паузу */

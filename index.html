@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 fill=%27%2326301F%27/%3E%3Crect x=%279%27 y=%276%27 width=%276%27 height=%2720%27 fill=%27%23D9E98A%27/%3E%3Crect x=%2718%27 y=%276%27 width=%276%27 height=%2720%27 fill=%27%23D9E98A%27/%3E%3C/svg%3E">
-<link rel="stylesheet" href="css/style.css?v=28">
+<link rel="stylesheet" href="css/style.css?v=30">
 </head>
 <body>
 
@@ -26,8 +26,7 @@
 
 <section class="hero" id="hero">
   <div class="hero-media" data-parallax="0.25">
-    <img src="assets/web/13-mountains.jpg" alt="Офис продаж Нагории с кофейней, вид на район на рассвете">
-    <video id="heroVideo" poster="assets/web/13-mountains.jpg" autoplay muted loop playsinline preload="auto" disablepictureinpicture aria-hidden="true"></video>
+    <img class="kb" src="assets/web/13-mountains.jpg" alt="Интерьер кофейни: панорамные окна, зелень, тёплый свет">
   </div>
   <div class="hero-shade"></div>
   <div class="hero-copy">
@@ -50,7 +49,7 @@
       <div><b>50–60&nbsp;м²</b><span>площадь кофейни<br>в помещении около 200&nbsp;м²</span></div>
     </div>
   </div>
-  <div class="wrap"><p class="src">¹ По данным инициатора. Число сотрудников на территории ежедневно требует уточнения.</p></div>
+  <div class="wrap"><figure class="idea-pic reveal"><img class="kb" loading="lazy" src="assets/web/district-a.jpg" alt="Нагория: жилой комплекс и парк"></figure><p class="src">¹ По данным инициатора. Число сотрудников на территории ежедневно требует уточнения.</p></div>
   <div class="wrap"><h2 class="wide sub">Повод приехать в Нагорию</h2></div>
   <div class="wrap audiences c2 reveal">
     <article><h3>Для местных жителей</h3><p>Приехать на кофе или встречу. Открыть для себя новое место и познакомиться с территорией.</p></article>
@@ -76,9 +75,10 @@
 
 <section class="sec sec-style">
   <div class="wrap">
+    <div class="trio small reveal"><figure><img loading="lazy" src="assets/web/v-green.jpg" alt="Крупная зелень"><figcaption>Крупная зелень</figcaption></figure><figure><img loading="lazy" src="assets/web/v-tones.jpg" alt="Мягкие природные оттенки"><figcaption>Мягкие природные оттенки</figcaption></figure><figure><img loading="lazy" src="assets/web/v-glass.jpg" alt="Стекло и тёплый свет"><figcaption>Стекло и тёплый свет</figcaption></figure></div>
     <div class="trio">
       <figure class="reveal"><img loading="lazy" src="assets/web/02-facade-dusk.jpg" alt="Кофейня вечером: панорамные окна и тонкая подсветка"><figcaption><b>Архитектура и вечерний свет</b>Панорамные окна, светлый камень, тонкая подсветка</figcaption></figure>
-      <figure class="reveal"><img loading="lazy" src="assets/web/03-counter.jpg" alt="Стойка с деревянной рейкой и тёплой подсветкой"><figcaption><b>Материалы и озеленение</b>Дерево и тёплые световые линии</figcaption></figure>
+      <figure class="reveal"><img loading="lazy" src="assets/web/01-facade-morning.jpg" alt="Дерево и тёплые световые линии"><figcaption><b>Материалы и озеленение</b>Дерево и тёплые световые линии</figcaption></figure>
       <figure class="reveal"><img loading="lazy" src="assets/web/04-hall.jpg" alt="Зал с зеленью"><figcaption><b>Материалы и озеленение</b>Зелень и мягкая посадка</figcaption></figure>
     </div>
   </div>
@@ -87,12 +87,12 @@
 <section class="day" id="day">
   <div class="day-pin">
     <div class="day-stage">
-      <video class="d-img on" src="assets/video/steam.mp4?v=28" poster="assets/web/06-coffee.jpg" autoplay muted loop playsinline preload="auto" data-loop aria-label="Кофе"></video>
+      <img class="d-img on kb" src="assets/web/06-coffee.jpg" alt="Кофе">
       <img class="d-img" src="assets/web/08-lunch.jpg" alt="Обед">
-      <img class="d-img" src="assets/web/07-breakfast.jpg" alt="Перекус">
+      <img class="d-img" src="assets/web/09-sandwich.jpg" alt="Перекус">
       <img class="d-img" src="assets/web/12-waiting.jpg" alt="Гость ждёт встречу">
-      <img class="d-img" src="assets/web/05-window.jpg" alt="Деловая встреча у окна">
-      <img class="d-img" src="assets/web/02-facade-dusk.jpg" alt="Нагория вечером">
+      <img class="d-img" src="assets/web/04-hall.jpg" alt="Деловая встреча">
+      <img class="d-img" src="assets/web/district-a.jpg" alt="Нагория">
       <div class="day-shade"></div>
     </div>
     <div class="day-ui">
@@ -108,6 +108,17 @@
       </div>
       <ul class="dots" id="dots"><li class="on"></li><li></li><li></li><li></li><li></li><li></li></ul>
     </div>
+  </div>
+</section>
+
+<section class="sec sec-nums">
+  <div class="wrap nums reveal">
+    <div><b>12–16</b><span>посадочных мест</span></div>
+    <div><b data-count="55">55</b><span>м² под кофейню</span></div>
+    <div><b data-count="2">2</b><span>сотрудника в обеденный пик</span></div>
+    <div><b>3–5</b><span>минут: ориентир для кофе</span></div>
+    <div><b>5–7</b><span>минут: ориентир для горячего обеда</span></div>
+    <div><b>10:30</b><span>до этого времени предзаказ обедов</span></div>
   </div>
 </section>
 
@@ -135,10 +146,6 @@
       </div>
     </div>
   </div>
-  <div class="iso reveal">
-    <img loading="lazy" src="assets/web/14-plan.jpg" alt="Объёмная схема кофейни">
-    <span>Объёмная визуализация планировки</span>
-  </div>
 </section>
 
 <section class="sec sec-interior">
@@ -148,7 +155,7 @@
       <figcaption>Тёплое пространство для короткой паузы · 12–16 мест, ориентир по посадке</figcaption>
     </figure>
     <figure class="reveal">
-      <img loading="lazy" src="assets/web/05-window.jpg" alt="У окна">
+      <img class="kb" loading="lazy" src="assets/web/04-hall.jpg" alt="Зал: зелёный диван и светлый камень">
       <figcaption>Эскиз концепции. Планировку и материалы согласуем после обследования помещения.</figcaption>
     </figure>
   </div>
@@ -191,18 +198,35 @@
   </div>
 </section>
 
+<section class="sec sec-flow">
+  <div class="wrap">
+    <p class="eyebrow dark">Производство</p>
+    <h2 class="wide">Как готовим без полноценной кухни</h2>
+    <p class="lede">Внешнее производство и подготовка к подаче на месте.</p>
+    <div class="flow reveal">
+      <div class="fstep"><i>01</i><h3>Производственная кухня</h3><p>Готовит обеды, супы, сырники, салаты и начинки. Формирует порции по согласованному меню.</p></div>
+      <div class="farrow"><span></span></div>
+      <div class="fstep"><i>02</i><h3>Поставка в кофейню</h3><p>Продукция поступает по согласованному графику. Для каждого блюда определяем перевозку и хранение.</p></div>
+      <div class="farrow"><span></span></div>
+      <div class="fstep"><i>03</i><h3>Выдача на точке</h3><p>Готовим напитки, разогреваем блюда и оформляем подачу перед выдачей.</p></div>
+    </div>
+    <p class="note">Производственная база: действующая оборудованная кухня или отдельный поставщик готовых блюд.</p>
+  </div>
+</section>
+
 <section class="sec sec-ops">
   <div class="wrap ops">
     <article class="reveal"><h3>Обеды для сотрудников</h3><p><b>До 10:30 — предзаказ на день.</b> Сотрудник выбирает блюдо и удобный интервал выдачи. 2 горячих блюда на выбор. Небольшой запас в свободной продаже, объём поставки корректируем по заказам и списаниям.</p><small>Время предзаказа предварительное. Корпоративную компенсацию питания обсуждаем с работодателем.</small></article>
-    <article class="reveal"><h3>Как готовим без полноценной кухни</h3><p>Внешнее производство и подготовка к подаче на месте.</p><ul><li><b>Производственная кухня.</b> Готовит обеды, супы, сырники, салаты и начинки. Формирует порции по согласованному меню.</li><li><b>Поставка в кофейню.</b> Продукция поступает по согласованному графику. Для каждого блюда определяем перевозку и хранение.</li><li><b>Выдача на точке.</b> Готовим напитки, разогреваем блюда и оформляем подачу перед выдачей.</li></ul><small>Производственная база: действующая оборудованная кухня или отдельный поставщик готовых блюд.</small></article>
     <article class="reveal"><h3>Что делаем в самой кофейне</h3><h4>Операции на точке</h4><ul><li>Готовим кофе, чай и другие напитки</li><li>Принимаем и храним готовую еду</li><li>Разогреваем супы и горячие блюда</li><li>Подогреваем сэндвичи и выпечку</li><li>Оформляем подачу и выдаём заказ</li></ul><h4>Производственная модель</h4><p>Сырое мясо и рыбу обрабатывает внешняя кухня. Сложные заготовки и большой горячий цех на точке не предусматриваем.</p><small>Допустимые операции, оборудование, сроки хранения и планировку подтверждает технолог.</small></article>
     <article class="reveal"><h3>Оснащение кофейни</h3><ul><li><b>Кофе:</b> кофемашина и кофемолка, система водоподготовки</li><li><b>Еда:</b> холодильная витрина и хранение, разогрев блюд, подогрев сэндвичей</li><li><b>Рабочая зона:</b> моечное оборудование, рабочие поверхности, места хранения</li><li><b>Учёт:</b> касса, продажи и остатки, ежедневный контроль списаний</li></ul></article>
     <article class="reveal"><h3>Команда и сервис</h3><p><b>2 сотрудника в обеденный пик:</b> бариста-кассир и сотрудник разогрева и выдачи.</p><p>3–5 минут — ориентир для кофе. 5–7 минут — ориентир для горячего обеда.</p><small>График привязан к отделу продаж. Скорость выдачи проверяем на тестовом запуске.</small></article>
   </div>
 </section>
 
+<section class="reel" aria-hidden="true"><div class="reel-track"><img loading="lazy" src="assets/web/01-facade-morning.jpg" alt=""><img loading="lazy" src="assets/web/06-coffee.jpg" alt=""><img loading="lazy" src="assets/web/04-hall.jpg" alt=""><img loading="lazy" src="assets/web/08-lunch.jpg" alt=""><img loading="lazy" src="assets/web/02-facade-dusk.jpg" alt=""><img loading="lazy" src="assets/web/09-sandwich.jpg" alt=""><img loading="lazy" src="assets/web/district-a.jpg" alt=""><img loading="lazy" src="assets/web/10-dessert.jpg" alt=""><img loading="lazy" src="assets/web/13-mountains.jpg" alt=""><img loading="lazy" src="assets/web/11-salad.jpg" alt=""><img loading="lazy" src="assets/web/07-breakfast.jpg" alt=""><img loading="lazy" src="assets/web/01-facade-morning.jpg" alt=""><img loading="lazy" src="assets/web/06-coffee.jpg" alt=""><img loading="lazy" src="assets/web/04-hall.jpg" alt=""><img loading="lazy" src="assets/web/08-lunch.jpg" alt=""><img loading="lazy" src="assets/web/02-facade-dusk.jpg" alt=""><img loading="lazy" src="assets/web/09-sandwich.jpg" alt=""><img loading="lazy" src="assets/web/district-a.jpg" alt=""><img loading="lazy" src="assets/web/10-dessert.jpg" alt=""><img loading="lazy" src="assets/web/13-mountains.jpg" alt=""><img loading="lazy" src="assets/web/11-salad.jpg" alt=""><img loading="lazy" src="assets/web/07-breakfast.jpg" alt=""></div></section>
+
 <section class="next" id="next">
-  <img src="assets/web/02-facade-dusk.jpg" alt="Кофейня в офисе продаж Нагории вечером" data-parallax="0.15">
+  <img src="assets/web/district-b.jpg" alt="Нагория: жилой комплекс и парк" data-parallax="0.15">
   <div class="next-copy wrap">
     <p class="eyebrow">Кофейня в Нагории</p>
     <h2>Точка притяжения для гостей.<br>Комфорт каждый день для команды.</h2>
@@ -212,6 +236,6 @@
 
 <footer class="foot">Плато · кофейня в Нагории · предложение для обсуждения · октябрь 2026</footer>
 
-<script src="js/main.js?v=28"></script>
+<script src="js/main.js?v=30"></script>
 </body>
 </html>
