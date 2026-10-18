@@ -90,3 +90,25 @@ const loops=$$('video[data-loop]');
 const vio=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting)v.play().catch(()=>{});else v.pause();}),{threshold:.1});
 loops.forEach(v=>vio.observe(v));
 })();
+
+/* звук: птицы и лёгкая музыка, по кнопке (браузеры не разрешают автозвук) */
+(function(){
+  const $=s=>document.querySelector(s);
+  const btn=$('#sound'),lbl=$('#soundLbl'),hint=$('#soundHint');
+  const tracks=[[new Audio('assets/audio/birds.mp3'),.9],[new Audio('assets/audio/music.mp3'),.7]];
+  tracks.forEach(([a])=>{a.loop=true;a.preload='auto';a.volume=0;});
+  let on=false,timers=[];
+  const fade=(a,to,ms,done)=>{const from=a.volume,t0=performance.now();(function f(t){const p=Math.min(1,(t-t0)/ms);a.volume=Math.max(0,Math.min(1,from+(to-from)*p));if(p<1)requestAnimationFrame(f);else done&&done();})(t0);};
+  function set(v){
+    on=v;btn.setAttribute('aria-pressed',v);lbl.textContent=v?'Звук вкл':'Звук';btn.setAttribute('aria-label',v?'Выключить фоновый звук':'Включить фоновый звук');
+    hint.classList.remove('show');
+    tracks.forEach(([a,vol],i)=>{
+      if(v){a.play().then(()=>fade(a,vol,2500)).catch(()=>{on=false;btn.setAttribute('aria-pressed',false);lbl.textContent='Звук';});}
+      else fade(a,0,900,()=>a.pause());
+    });
+  }
+  btn.addEventListener('click',()=>set(!on));
+  document.addEventListener('visibilitychange',()=>tracks.forEach(([a,vol])=>{if(document.hidden)a.pause();else if(on)a.play().then(()=>a.volume=vol).catch(()=>{});}));
+  setTimeout(()=>{if(!on)hint.classList.add('show');},2500);
+  setTimeout(()=>hint.classList.remove('show'),11000);
+})();

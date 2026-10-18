@@ -219,3 +219,30 @@ input[type=range]{width:100%;margin-top:12px;accent-color:var(--olive);height:28
 }
 
 .menu-photo video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s}
+
+/* звук */
+.top{gap:18px}
+.sound{display:flex;align-items:center;gap:10px;padding:8px 14px;border:1px solid rgba(255,255,255,.45);border-radius:999px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:rgba(20,26,15,.25);backdrop-filter:blur(6px);transition:background .3s,border-color .3s,color .3s;margin-left:auto}
+.top nav{margin-left:auto}.top nav+.sound{margin-left:0}
+.sound:hover{border-color:var(--lime)}
+.sound[aria-pressed=true]{background:var(--lime);border-color:var(--lime);color:var(--ink)}
+.eq{display:flex;align-items:flex-end;gap:2px;height:14px}
+.eq i{width:2px;height:4px;background:currentColor;border-radius:1px}
+.sound[aria-pressed=true] .eq i{animation:eq 1s ease-in-out infinite}
+.sound[aria-pressed=true] .eq i:nth-child(2){animation-delay:-.3s}.sound[aria-pressed=true] .eq i:nth-child(3){animation-delay:-.6s}.sound[aria-pressed=true] .eq i:nth-child(4){animation-delay:-.15s}
+@keyframes eq{0%,100%{height:3px}50%{height:14px}}
+.sound-hint{position:absolute;right:28px;top:62px;background:var(--lime);color:var(--ink);font-size:13px;padding:9px 14px;border-radius:3px;opacity:0;transform:translateY(-6px);pointer-events:none;transition:opacity .6s,transform .6s}
+.sound-hint::before{content:"";position:absolute;top:-5px;right:46px;border:5px solid transparent;border-top:0;border-bottom-color:var(--lime)}
+.sound-hint.show{opacity:1;transform:none}
+@media (max-width:860px){.top{padding:14px 16px}.sound{padding:7px 12px}.sound-hint{right:16px;top:56px}.sound-hint::before{right:34px}}
+
+/* ласточки: чёткие векторные птицы над видео */
+.birds{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1}
+.bird{position:absolute;left:0;top:var(--top);width:var(--sz);animation:fly var(--t) linear var(--d) infinite;will-change:transform}
+.bird svg{display:block;width:100%;height:auto;fill:#2b3322;opacity:.78;animation:bob 5s ease-in-out infinite;filter:drop-shadow(0 1px 1px rgba(255,255,255,.25))}
+.bird .wing{transform-box:fill-box;transform-origin:50% 60%;animation:flap var(--f) ease-in-out infinite alternate}
+@keyframes fly{from{transform:translateX(-12vw)}to{transform:translateX(112vw)}}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-14px) rotate(2deg)}}
+@keyframes flap{from{transform:scaleY(1)}to{transform:scaleY(.38)}}
+.hero-shade,.hero-copy,.scroll-cue{z-index:2}
+@media (prefers-reduced-motion:reduce){.bird{animation:none;left:60%}.bird svg,.bird .wing{animation:none}}

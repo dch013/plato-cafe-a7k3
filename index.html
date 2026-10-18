@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 fill=%27%2326301F%27/%3E%3Crect x=%279%27 y=%276%27 width=%276%27 height=%2720%27 fill=%27%23D9E98A%27/%3E%3Crect x=%2718%27 y=%276%27 width=%276%27 height=%2720%27 fill=%27%23D9E98A%27/%3E%3C/svg%3E">
-<link rel="stylesheet" href="css/style.css?v=5">
+<link rel="stylesheet" href="css/style.css?v=8">
 </head>
 <body>
 
@@ -19,6 +19,8 @@
   <nav>
     <a href="#idea">Идея</a><a href="#style">Образ</a><a href="#day">День</a><a href="#space">Пространство</a><a href="#menu">Меню</a><a href="#next">Дальше</a>
   </nav>
+  <button class="sound" id="sound" type="button" aria-pressed="false" aria-label="Включить фоновый звук"><span class="eq"><i></i><i></i><i></i><i></i></span><span id="soundLbl">Звук</span></button>
+  <div class="sound-hint" id="soundHint">Включите звук: птицы и лёгкая музыка</div>
   <div class="progress"><b id="bar"></b></div>
 </header>
 
@@ -27,6 +29,7 @@
     <img src="assets/web/13-mountains.jpg" alt="Рассвет над Нагорией, павильон кофейни на переднем плане">
     <video id="heroVideo" src="assets/video/hero.mp4" poster="assets/web/13-mountains.jpg" autoplay muted loop playsinline preload="auto" disablepictureinpicture aria-hidden="true"></video>
   </div>
+  <div class="birds" aria-hidden="true"><span class="bird" style="--top:8%;--sz:88px;--t:46s;--d:-4s;--f:0.68s"><svg viewBox="0 0 48 20" aria-hidden="true"><path class="wing" d="M1 12 C9 1 18 2 24 11 C30 2 39 1 47 12 C39 8 31 9 24 16 C17 9 9 8 1 12Z"/></svg></span><span class="bird" style="--top:14%;--sz:57px;--t:58s;--d:-31s;--f:0.76s"><svg viewBox="0 0 48 20" aria-hidden="true"><path class="wing" d="M1 12 C9 1 18 2 24 11 C30 2 39 1 47 12 C39 8 31 9 24 16 C17 9 9 8 1 12Z"/></svg></span><span class="bird" style="--top:19%;--sz:67px;--t:40s;--d:-14s;--f:0.62s"><svg viewBox="0 0 48 20" aria-hidden="true"><path class="wing" d="M1 12 C9 1 18 2 24 11 C30 2 39 1 47 12 C39 8 31 9 24 16 C17 9 9 8 1 12Z"/></svg></span><span class="bird" style="--top:11%;--sz:46px;--t:64s;--d:-47s;--f:0.84s"><svg viewBox="0 0 48 20" aria-hidden="true"><path class="wing" d="M1 12 C9 1 18 2 24 11 C30 2 39 1 47 12 C39 8 31 9 24 16 C17 9 9 8 1 12Z"/></svg></span><span class="bird" style="--top:25%;--sz:39px;--t:52s;--d:-22s;--f:0.70s"><svg viewBox="0 0 48 20" aria-hidden="true"><path class="wing" d="M1 12 C9 1 18 2 24 11 C30 2 39 1 47 12 C39 8 31 9 24 16 C17 9 9 8 1 12Z"/></svg></span><span class="bird" style="--top:6%;--sz:31px;--t:70s;--d:-58s;--f:0.90s"><svg viewBox="0 0 48 20" aria-hidden="true"><path class="wing" d="M1 12 C9 1 18 2 24 11 C30 2 39 1 47 12 C39 8 31 9 24 16 C17 9 9 8 1 12Z"/></svg></span><span class="bird" style="--top:16%;--sz:52px;--t:44s;--d:-38s;--f:0.65s"><svg viewBox="0 0 48 20" aria-hidden="true"><path class="wing" d="M1 12 C9 1 18 2 24 11 C30 2 39 1 47 12 C39 8 31 9 24 16 C17 9 9 8 1 12Z"/></svg></span></div>
   <div class="hero-shade"></div>
   <div class="hero-copy">
     <p class="eyebrow">Нагория · отдел продаж · 55&nbsp;м²</p>
@@ -208,6 +211,6 @@
 
 <footer class="foot">ПЛАТО · кофе и еда · территория Нагории · рабочая версия для обсуждения · 18 октября 2026</footer>
 
-<script src="js/main.js?v=5"></script>
+<script src="js/main.js?v=8"></script>
 </body>
 </html>
