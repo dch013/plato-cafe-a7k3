@@ -278,3 +278,10 @@ input[type=range]{width:100%;margin-top:12px;accent-color:var(--olive);height:28
 .hero .slats{display:none}
 .hero-copy{padding-bottom:8vh}
 @media (max-width:860px) and (orientation:portrait){.hero-media img,.hero-media video{object-position:30% 50%}.hero h1{font-size:clamp(34px,10vw,60px)}}
+
+.step .grp{display:block;font-style:normal;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--lime);margin-bottom:8px;max-width:46ch;line-height:1.5}
+.menu-groups ul{margin:10px 0 0 18px;color:#3c4435;line-height:1.55}
+.mg-note{margin:-24px 0 36px}
+.menu-list h3.mt{font-family:var(--display);font-weight:400;font-size:22px;margin-bottom:6px}
+.menu-list h4,.ops h4{font-family:var(--display);font-weight:500;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--lime);margin:18px 0 4px}
+.ops h4{color:var(--olive);margin-top:14px}
