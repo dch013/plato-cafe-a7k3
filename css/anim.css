@@ -151,3 +151,8 @@
 /* v46: видео района вместо картинки */
 .idea-pic .pic-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 96%;display:block}
 @media (prefers-reduced-motion:reduce){.idea-pic .pic-video{display:none}}
+
+/* v47: зум туда-сюда без рывка: один общий ease-in-out, 1 -> 1.04 -> 1, период 36 с; видео главной зациклено (первый кадр = последний) */
+.hero-media img,.hero-media video.hero-intro{animation:heroz 36s ease-in-out infinite}
+@keyframes heroz{0%,100%{scale:1}50%{scale:1.04}}
+@media (prefers-reduced-motion:reduce){.hero-media img,.hero-media video.hero-intro{animation:none}}
