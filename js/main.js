@@ -51,16 +51,18 @@ zone('0');
 
 /* menu */
 const MENU={
-  coffee:{img:'06-coffee',items:['Эспрессо, американо, капучино, латте, флэт уайт','Один авторский напиток','Чай, какао, вода','Сезонный холодный напиток']},
+  coffee:{img:'06-coffee',video:'steam',items:['Эспрессо, американо, капучино, латте, флэт уайт','Один авторский напиток','Чай, какао, вода','Сезонный холодный напиток']},
   eat:{img:'07-breakfast',items:['Сырники','Каша дня','Йогурт с гранолой','Два сэндвича и один ролл','Два салата, один из них сытный, с белком']},
   lunch:{img:'08-lunch',items:['Суп дня, например куриный с лапшой','Два горячих блюда с гарниром на выбор','Котлета из индейки с пюре, курица с рисом и овощами','Меню меняется по двухнедельному циклу','Региональный акцент: порционный пирог с сыром и зеленью']},
-  sweet:{img:'03-counter',items:['Выпечка и десерты на витрине','Свежая витрина, понятная с порога','Свободная продажа из небольшого запаса']}
+  sweet:{img:'03-counter',video:'hall',items:['Выпечка и десерты на витрине','Свежая витрина, понятная с порога','Свободная продажа из небольшого запаса']}
 };
-const list=$('#menuList'), mi=$('#menuImg');
+const list=$('#menuList'), mi=$('#menuImg'), mv=$('#menuVid');
 function tab(k){
   $$('#tabs button').forEach(b=>b.classList.toggle('on',b.dataset.t===k));
   list.innerHTML=MENU[k].items.map((t,i)=>`<p style="animation-delay:${i*70}ms">${t}</p>`).join('');
-  mi.style.opacity=0; setTimeout(()=>{mi.src='assets/web/'+MENU[k].img+'.jpg';mi.style.opacity=1;},180);
+  const m=MENU[k];
+  if(m.video){mv.poster='assets/web/'+m.img+'.jpg';mv.src='assets/video/'+m.video+'.mp4';mv.play().catch(()=>{});mv.style.opacity=1;mi.style.opacity=0;}
+  else{mv.pause();mv.style.opacity=0;mi.style.opacity=0;setTimeout(()=>{mi.src='assets/web/'+m.img+'.jpg';mi.style.opacity=1;},180);}
 }
 $$('#tabs button').forEach(b=>b.addEventListener('click',()=>tab(b.dataset.t))); tab('coffee');
 
@@ -83,9 +85,8 @@ const kick=()=>{if(hv.paused)hv.play().catch(()=>{});};
 hv.play&&hv.play().catch(()=>{});
 ['touchstart','pointerdown','scroll','visibilitychange'].forEach(e=>addEventListener(e,kick,{passive:true,once:e!=='visibilitychange'&&e!=='scroll'}));
 document.addEventListener('visibilitychange',kick);
-/* ролики проигрываются один раз и замирают на последнем кадре (без цикла и отката зума) */
-const once=$$('video[data-once]');
-const vio=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;
-  if(e.isIntersecting){v.currentTime=0;v.play().catch(()=>{});}else v.pause();}),{threshold:.35});
-once.forEach(v=>vio.observe(v));
+/* все ролики идут по кругу, пока видны; вне экрана ставятся на паузу */
+const loops=$$('video[data-loop]');
+const vio=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting)v.play().catch(()=>{});else v.pause();}),{threshold:.1});
+loops.forEach(v=>vio.observe(v));
 })();
